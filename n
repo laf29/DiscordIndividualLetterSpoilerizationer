@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Input to Output with "||||"</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 1em;
+  }
+  #output {
+    white-space: pre-wrap;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+  }
+</style>
+</head>
+<body>
+
+<h2>Input and Copyable Output</h2>
+<label for="inputText">Enter your text:</label>
+<input type="text" id="inputText" placeholder="Type something..." />
+
+<label for="output">Output (click to copy):</label>
+<textarea id="output" readonly></textarea>
+
+<script>
+const inputField = document.getElementById('inputText');
+const outputField = document.getElementById('output');
+
+inputField.addEventListener('input', () => {
+  const text = inputField.value;
+  const transformed = text.split('').map(char => char + '||||').join('');
+  outputField.value = transformed;
+});
+
+// Optional: copy to clipboard when clicking on the output
+outputField.addEventListener('click', () => {
+  outputField.select();
+  document.execCommand('copy');
+  alert('Copied to clipboard!');
+});
+</script>
+
+</body>
+</html>
