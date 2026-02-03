@@ -28,7 +28,7 @@
 <label for="inputText">Enter your message:</label>
 <input type="text" id="inputText" placeholder="Type something..." />
 
-<label for="output">Output (click to copy):</label>
+<label for="output">\nOutput (click to copy):</label>
 <textarea id="output" readonly></textarea>
 
 <script>
@@ -43,7 +43,7 @@ inputField.addEventListener('input', () => {
   outputField.value = transformed;
 });
 
-// Optional: copy to clipboard when clicking on the output
+
 outputField.addEventListener('click', () => {
   outputField.select();
   document.execCommand('copy');
