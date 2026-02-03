@@ -37,7 +37,7 @@ const outputField = document.getElementById('output');
 inputField.addEventListener('input', () => {
   const text = inputField.value;
   const transformed = text.split('')
-    .map(char => `||${char}||`)
+    .map(char => '||'+char+'||')
     .join('');
   outputField.value = transformed;
 });
