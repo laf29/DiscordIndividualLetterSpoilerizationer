@@ -23,20 +23,16 @@
 </style>
 </head>
 <body>
-
 <h2>Individual Letter Spoilerizationer for Discord Messages</h2>
 <label for="inputText">Enter your message:</label>
 <input type="text" id="inputText" placeholder="Type something..." />
 <p></p>
 <label for="output">Output (click to copy):</label>
 <textarea id="output" readonly></textarea>
-
 <p>Paste into Discord to make every letter a spoiler!</p>
-
 <script>
 const inputField = document.getElementById('inputText');
 const outputField = document.getElementById('output');
-
 inputField.addEventListener('input', () => {
   const text = inputField.value;
   const transformed = text.split('')
@@ -44,14 +40,11 @@ inputField.addEventListener('input', () => {
     .join('');
   outputField.value = transformed;
 });
-
-
 outputField.addEventListener('click', () => {
   outputField.select();
   document.execCommand('copy');
   alert('Copied to clipboard!');
 });
 </script>
-
 </body>
 </html>
