@@ -10,12 +10,16 @@
 	}
 </style>
 <body>
-
+ <script>
+ function changeOutput() {
+  
+ }
+ </script>
 	<div class="basic_structure">
 		Individual Letter Spoilerizationer for Discord Messages<br><br>
-		<input type="textarea" id = "sendquestion" placeholder="Your message here"></input><br><br>
+		<input type="textarea" id = "inputMessage" placeholder="Your message here"></input><br><br>
 		<input type="textarea" disabled="true" id = "response"></input><br><br><br>
-		<input type="button" value="Submit" onclick="sendqsn()"></input>
+		<input type="button" value="Submit" onclick="changeOutput(document.getElementById("inputMessage").innerHTML)"></input>
 	</div>
 
 </body>
