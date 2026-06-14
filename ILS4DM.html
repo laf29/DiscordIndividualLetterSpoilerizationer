@@ -54,10 +54,17 @@ inputSpoilerField.addEventListener('input', () => {
   const original = text.replace(/p/g, "");
   outputTextField.value = original;
 });
-inputSpoilerField.addEventListener('click', () => {
-  inputSpoilerField.select();
-  document.execCommand('paste');
-  alert('Pasted!');
+inputSpoilerField.addEventListener('click', async () => {
+   try {
+     const text = await navigator.clipboard.readText()
+     document.querySelector('textarea').value += text;
+     console.log('Text pasted.');
+   } catch (error) {
+     console.log('Failed to read clipboard. Using execCommand instead.');
+     document.querySelector('textarea').focus();
+     const result = document.execCommand('paste')
+     console.log('document.execCommand result: ', result);
+   }
 });
 outputTextField.addEventListener('click', () => {
   outputTextField.select();
