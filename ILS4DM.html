@@ -29,20 +29,43 @@
 <label for="inputText">Enter your message:</label>
 <input type="text" id="inputText" placeholder="Type something..." />
 <p></p>
-<label for="output">Output (click to copy):</label>
+<label for="outputSpoiler">Output (click to copy):</label>
+<textarea id="outputSpoiler" readonly></textarea>
+<hr>
+<label for="inputSpoiler">Enter your message:</label>
+<input type="text" id="inputText" placeholder="Type something..." />
+<p></p>
+<label for="outputText">Output (click to copy):</label>
 <textarea id="output" readonly></textarea>
 <script>
-const inputField = document.getElementById('inputText');
-const outputField = document.getElementById('output');
-inputField.addEventListener('input', () => {
-  const text = inputField.value;
+const inputTextField = document.getElementById('inputText');
+  const inputTextField = document.getElementById('inputSpoiler');
+const outputSpoilerField = document.getElementById('outputText');
+const outputSpoilerField = document.getElementById('outputSpoiler');
+inputTextField.addEventListener('input', () => {
+  const text = inputTextField.value;
   const transformed = text.split('')
     .map(char => '||'+char+'||')
     .join('');
-  outputField.value = transformed;
+  outputSpoilerField.value = transformed;
 });
-outputField.addEventListener('click', () => {
-  outputField.select();
+inputSpoilerField.addEventListener('input', () => {
+  const text = inputSpoilerField.value;
+  const original = text..replace(/p/g, "");
+  outputTextField.value = original;
+});
+inputSpoilerField.addEventListener('click', () => {
+  inputSpoilerField.select();
+  document.execCommand('paste');
+  alert('Pasted!');
+});
+outputTextField.addEventListener('click', () => {
+  outputTextField.select();
+  document.execCommand('copy');
+  alert('Copied to clipboard!');
+});
+outputSpoilerField.addEventListener('click', () => {
+  outputSpoilerField.select();
   document.execCommand('copy');
   alert('Copied to clipboard!');
 });
