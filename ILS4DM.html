@@ -57,10 +57,10 @@ inputSpoilerField.addEventListener('input', () => {
   outputTextField.value = original;
 });
 inputSpoilerField.addEventListener('dblclick', async () => {
-  inputSpoilerField.select();
   try {
     const text = await navigator.clipboard.readText()
-    document.querySelector('textarea').value += text;
+    inputSpoilerField.value += text;
+    inputSpoilerField.dispatchEvent(new Event('input'));
     console.log('Text pasted.');
   } catch (error) {
     console.log('Failed to read clipboard. Using execCommand instead.');
