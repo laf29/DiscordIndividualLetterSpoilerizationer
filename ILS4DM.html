@@ -53,7 +53,7 @@ inputTextField.addEventListener('input', () => {
 });
 inputSpoilerField.addEventListener('input', () => {
   const text = inputSpoilerField.value;
-  const original = text.replace(/|/g, "");
+  const original = text.replaceAll("||", "");
   outputTextField.value = original;
 });
 inputSpoilerField.addEventListener('dblclick', async () => {
