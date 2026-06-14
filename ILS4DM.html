@@ -51,7 +51,7 @@ inputTextField.addEventListener('input', () => {
 });
 inputSpoilerField.addEventListener('input', () => {
   const text = inputSpoilerField.value;
-  const original = text.replace(/p/g, "");
+  const original = text.replace(/|/g, "");
   outputTextField.value = original;
 });
 inputSpoilerField.addEventListener('click', async () => {
