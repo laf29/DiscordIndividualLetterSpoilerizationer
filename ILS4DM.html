@@ -34,7 +34,7 @@
 <p></p>
 <hr>
 <p></p>
-<label for="inputSpoiler">Enter spoiled message (click to paste):</label>
+<label for="inputSpoiler">Enter spoiled message (double click to paste):</label>
 <input type="text" id="inputSpoiler" placeholder="Type something..." />
 <p></p>
 <label for="outputText">Output (click to copy):</label>
@@ -56,7 +56,7 @@ inputSpoilerField.addEventListener('input', () => {
   const original = text.replace(/|/g, "");
   outputTextField.value = original;
 });
-inputSpoilerField.addEventListener('click', async () => {
+inputSpoilerField.addEventListener('dblclick', async () => {
    try {
      const text = await navigator.clipboard.readText()
      document.querySelector('textarea').value += text;
